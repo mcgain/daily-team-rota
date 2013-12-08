@@ -1,6 +1,8 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    haml (4.0.4)
+      tilt
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -25,6 +27,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  haml (~> 4.0)
   pony (~> 1.6)
   redis (~> 3.0)
   sinatra (~> 1.4)
