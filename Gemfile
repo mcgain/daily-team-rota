@@ -2,4 +2,5 @@ source 'https://rubygems.org'
 ruby '2.0.0'
 
 gem 'sinatra', '~> 1.4'
-gem "resque", "~> 2.0.0.pre.1", github: "resque/resque"
+gem 'redis', '~> 3.0'
+gem 'pony', '~> 1.6'

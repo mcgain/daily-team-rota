@@ -3,5 +3,5 @@ require 'bundler'
 
 Bundler.require
 
-require './mailer'
+require './main'
 run Sinatra::Application
