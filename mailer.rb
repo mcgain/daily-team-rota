@@ -16,8 +16,9 @@ class Mailer
 
   def self.send_rota_email_to(recipient)
     Pony.mail(to: recipient,
+              cc: 'checkout@shopify.flowdock.com',
               from: 'richard.mcgain@jadedpixel.com',
-              subject: 'You are responsible for errbit today',
+              subject: "#{recipient} is on errors duty today",
               body: EMAIL_BODY)
   end
 end
