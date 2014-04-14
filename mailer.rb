@@ -26,19 +26,12 @@ end
 EMAIL_BODY = <<-EOS
 Good morning!
 
-Please keep an eye on errbit errors reported today.
-If an error should be fixed by the checkout team,
-raise an issue and tag it with 'AR Checkout Area'.
+It is your job to keep an eye on the dashboards today. If something goes wrong with
+gift cards or checkout, we need to be the first to know.
 
+Some useful dashboards are:
 https://logs.shopify.com:8000/en-US/app/search/CheckoutDashboard
-is an easier way to find errors than monitoring flowdock.
-
-If it looks important, you should probably tell people!
-
-If you cannot do this today, please ask someone else to cover for you.
-
-If it is a monday, or the day after the holiday,
-please have a look over the previous days too.
+https://app.datadoghq.com/dash/dash/18553?live=true&from_ts=1397481759777&to_ts=1397485359777&tile_size=m
 
 Thanks,
 
