@@ -13,14 +13,17 @@ class Queue
 
   def self.next
     recipient = redis.lpop('current')
-    recipient || reshuffle
+    recipient || reshuffle_and_next
+  end
+
+  def self.reshuffle_and_next
+    reshuffle
+    self.next
   end
 
   def self.reshuffle
-    people = self.people.shuffle
-    recipient = people.shift
+    people = people.shuffle
     redis.lpush 'current', people
-    recipient
   end
 
   def self.people
