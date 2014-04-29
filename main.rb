@@ -29,10 +29,10 @@ PAGE_HAML = <<-EOS
   !!! 5
   %head
     %title
-      Checkout Team Errbit Roster Thingy
+    Montreal office Kitchen Duty Roster
   %body
     %h1
-      Checkout Team Errbit Roster Thingy
+    Montreal office Kitchen Duty Roster
     %div
       Everyone:
       = people
