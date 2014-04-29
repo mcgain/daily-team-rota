@@ -22,7 +22,7 @@ class Queue
   end
 
   def self.reshuffle
-    people = people.shuffle
+    people = self.people.shuffle
     redis.lpush 'current', people
   end
 
