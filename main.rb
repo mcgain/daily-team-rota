@@ -18,7 +18,7 @@ post '/remove' do
 end
 
 def people
-  (Queue.people || []).join(" • ")
+  (Queue.people || []).each_slice(2).to_a
 end
 
 def current
@@ -39,23 +39,35 @@ PAGE_HAML = <<-EOS
   %head
     %title
       Montreal office Kitchen Duty Roster
+
   %body
+
     %h1
       Montreal office Kitchen Duty Roster
+
     %div
       Tomorrow:
       = up_next
     %div
       Then:
       = the_rest
+
     %hr
+
     %div
       Everyone:
-      = people
+      %table
+        %tbody
+          - people.each do |row|
+            %tr
+            - row.each do |column|
+              %td= column
+
     %form{name: 'add', action: '/add', method: 'post'}
       %label{for: 'add[email]'} Add someone
       %input{type: 'text', name: 'email'}
       %input{type: 'submit', value: 'Add', class: 'button'}
+
     %form{name: 'remove', action: '/remove', method: 'post'}
       %label{for: 'remove[email]'} remove someone
       %input{type: 'text', name: 'email'}
