@@ -18,7 +18,7 @@ post '/remove' do
 end
 
 def people
-  (Queue.people || []).each_slice(2).to_a
+  (Queue.people || []).each_slice(3).to_a
 end
 
 def current
@@ -61,7 +61,7 @@ PAGE_HAML = <<-EOS
           - people.each do |row|
             %tr
             - row.each do |column|
-              %td= column
+              %td= • column
 
     %form{name: 'add', action: '/add', method: 'post'}
       %label{for: 'add[email]'} Add someone
