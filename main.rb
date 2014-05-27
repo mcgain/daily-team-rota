@@ -1,3 +1,4 @@
+require 'sinatra'
 require_relative 'queue'
 require 'haml'
 
@@ -17,11 +18,19 @@ post '/remove' do
 end
 
 def people
-  Queue.people
+  (Queue.people || []).join(" • ")
 end
 
 def current
   Queue.current
+end
+
+def up_next
+  current.first
+end
+
+def the_rest
+  (current[1..-1] || []).join(" ← ")
 end
 
 PAGE_HAML = <<-EOS
@@ -29,16 +38,20 @@ PAGE_HAML = <<-EOS
   !!! 5
   %head
     %title
-    Montreal office Kitchen Duty Roster
+      Montreal office Kitchen Duty Roster
   %body
     %h1
-    Montreal office Kitchen Duty Roster
+      Montreal office Kitchen Duty Roster
+    %div
+      Tomorrow:
+      = up_next
+    %div
+      Then:
+      = the_rest
+    %hr
     %div
       Everyone:
       = people
-    %div
-      Current cycle:
-      = current
     %form{name: 'add', action: '/add', method: 'post'}
       %label{for: 'add[email]'} Add someone
       %input{type: 'text', name: 'email'}
