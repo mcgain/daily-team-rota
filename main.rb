@@ -26,11 +26,11 @@ def current
 end
 
 def up_next
-  current.first
+  current[0..1].join(' and ')
 end
 
 def the_rest
-  (current[1..-1] || []).join(" ← ")
+  (current[2..-1] || []).join(" ← ")
 end
 
 PAGE_HAML = <<-EOS

@@ -16,10 +16,17 @@ class Mailer
 
   def self.send_rota_email_to(recipient)
     Pony.mail(to: recipient,
-              cc: 'montreal@shopify.flowdock.com',
               from: recipient,
               subject: "#{recipient} is on kitchen duty today",
               body: EMAIL_BODY)
+  end
+
+  def self.send_rota_email_to_flowdock(recipients)
+    recipients_str = recipients.join(' and ') + ' are on kitchen duty today'
+    Pony.mail(to: 'montreal@shopify.flowdock.com',
+              from: recipients.first,
+              subject: recipients_str,
+              body: recipients_str)
   end
 end
 
