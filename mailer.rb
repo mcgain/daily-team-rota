@@ -21,7 +21,7 @@ class Mailer
               body: EMAIL_BODY)
   end
 
-  def self.send_rota_email_to_flowdock(recipients)
+  def self.send_rota_email_to_flowdock(*recipients)
     recipients_str = recipients.join(' and ') + ' are on kitchen duty today'
     Pony.mail(to: 'montreal@shopify.flowdock.com',
               from: recipients.first,
